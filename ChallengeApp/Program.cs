@@ -1,19 +1,21 @@
-﻿//Zadanie domowe dzień 4
-string name = "Alicja";
-char sex = 'k';
-int age = 29;
+﻿//Zadanie domowe Dzień 5
+int number = 73234566;
+string numberToString = number.ToString();
+char[] letters = numberToString.ToArray();
 
-if( sex == 'k' && age < 30)
+Console.WriteLine("Ilość znaków występujących w liczbie: " + number);
+for (char sign = '0'; sign <= '9'; sign++)
 {
-	Console.WriteLine("Kobieta poniżej 30 lat");
-}
-else if (name == "Ewa" && age == 30)
-{
-	Console.WriteLine("Ewa, lat 30");
-}
-else if(sex == 'm' && age < 18)
-{
-	Console.WriteLine("Niepełnoletni mężczyzna");
+	int counter = 0;
+	foreach (var letter in letters)
+	{
+		if (letter == sign)
+		{
+			counter += 1;
+		}
+	}
+
+	Console.WriteLine(sign + " => " + counter);	
 }
 
 
