@@ -14,8 +14,5 @@ for (char sign = '0'; sign <= '9'; sign++)
 			counter += 1;
 		}
 	}
-
 	Console.WriteLine(sign + " => " + counter);	
 }
-
-
