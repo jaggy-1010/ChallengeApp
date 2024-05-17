@@ -1,18 +1,11 @@
-﻿//Zadanie domowe Dzień 5
-int number = 73234566;
-string numberToString = number.ToString();
-char[] letters = numberToString.ToArray();
+﻿using ChallengeApp;
 
-Console.WriteLine("Ilość znaków występujących w liczbie: " + number);
-for (char sign = '0'; sign <= '9'; sign++)
-{
-	int counter = 0;
-	foreach (var letter in letters)
-	{
-		if (letter == sign)
-		{
-			counter += 1;
-		}
-	}
-	Console.WriteLine(sign + " => " + counter);	
-}
+User user1 = new User("Adam", "32423fddf");
+User user2 = new User("Monika","32423fddf");
+User user3 = new User("Zuzia", "32423fddf");
+User user4 = new User("Damian", "32423fddf");
+
+user1.AddScore(5);
+user1.AddScore(2);
+var result = user1.Result;
+Console.WriteLine(result);
