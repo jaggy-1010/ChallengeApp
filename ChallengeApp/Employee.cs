@@ -5,7 +5,8 @@ class Employee
 
 	private List<int> score = new List<int>();
 	
-	public Employee(string name, string surname, int age){
+	public Employee(string name, string surname, int age)
+	{
 		this.Name = name;
 		this.Surname = surname;
 		this.Age = age;
