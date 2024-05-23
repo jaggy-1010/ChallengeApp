@@ -17,3 +17,8 @@ user2.AddScore(9);
 user3.AddScore(11);
 user3.AddScore(1);
 user3.AddScore(1);
+
+Console.WriteLine(user3.Login);
+Console.WriteLine(user3.Password);
+Console.WriteLine(user3.Result);
+Console.WriteLine(user1.AvgResult);
