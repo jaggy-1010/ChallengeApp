@@ -128,24 +128,4 @@ public class UserTests
         // assert
         Assert.AreEqual("rhtTw%23", result);
     }
-
-
-    // [Test]
-    //  public void CheckIfNewStringsAreNotEqual()
-    //  {
-    //     // arrange
-    //      var user1 = GetUser("Adam");
-    //      var user2 = GetUser("Adam");
-
-    //     // act
-
-    //     // assert
-    //      Assert.AreNotEqual(user1, user2);
-
-    //  }
-
-    //  private User GetUser(string name)
-    //  {
-    //      return new User(name);
-    //  }
 }
