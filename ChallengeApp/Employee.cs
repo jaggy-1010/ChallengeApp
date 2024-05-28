@@ -23,16 +23,24 @@ public class Employee
         statistics.Average = 0;
         statistics.Min = float.MaxValue;
         statistics.Max = float.MinValue;
-
-        foreach(var score in this.scores)
+        foreach (var score in this.scores)
         {
             statistics.Min = Math.Min(statistics.Min, score);
             statistics.Max = Math.Max(statistics.Max, score);
             statistics.Average += score;
         }
 
-        statistics.Average /= this.scores.Count;
-
+        if (this.scores.Count != 0)
+        {
+            statistics.Average /= this.scores.Count;
+        }
+        else
+        {   
+            statistics.Min = 0;
+            statistics.Max = 0;
+            string message = "Employee has not been scored.";
+            Console.WriteLine(message);
+        }
         return statistics;
     }
 }
