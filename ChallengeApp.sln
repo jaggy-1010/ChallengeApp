@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeApp", "ChallengeApp\ChallengeApp.csproj", "{3EB95F32-59D4-4347-911F-7F115F407DC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeAppFromDevKit", "..\ChallengeAppFromDevKit\ChallengeAppFromDevKit\ChallengeAppFromDevKit.csproj", "{5AB4D613-4FB3-4B4B-A5E6-78773855DEDB}"
+# Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeAppFromDevKit", "..\ChallengeAppFromDevKit\ChallengeAppFromDevKit\ChallengeAppFromDevKit.csproj", "{5AB4D613-4FB3-4B4B-A5E6-78773855DEDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeApp.Test", "ChallengeApp.Test\ChallengeApp.Test.csproj", "{2C4C589A-0729-402B-B493-4B16C2E0B8FD}"
 EndProject
