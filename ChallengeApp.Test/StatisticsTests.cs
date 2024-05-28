@@ -5,7 +5,7 @@ namespace ChallengeApp.Test;
 public class StatisticsTests
 {
     [Test]
-    public void CheckScoresAverageWherewmployeeScored()
+    public void CheckPositiveScoresStatisticsWhereEmployeeIsScored()
     {
         // arrange
         Employee employee = new Employee("Stefan","Batory");
@@ -16,13 +16,17 @@ public class StatisticsTests
         // act
         var statistics = employee.GetStatistics();
         var result = statistics.Average;
+        var result1 = statistics.Min;
+        var result2 = statistics.Max;
 
         // assert
         Assert.AreEqual(2.0f, result);                
+        Assert.AreEqual(0.0f, result1);                
+        Assert.AreEqual(4.0f, result2);                
     }
 
     [Test]
-    public void CheckScoresAverageWhereEmployeeNotScored()
+    public void CheckScoresStatisticsWhereEmployeeIsNotScored()
     {
         // arrange
         Employee employee = new Employee("Kazimierz","Jagiellończyk");
@@ -30,70 +34,55 @@ public class StatisticsTests
         // act
         var statistics = employee.GetStatistics();
         var result = statistics.Average;
+        var result1 = statistics.Min;
+        var result2 = statistics.Max;
 
         // assert
         Assert.AreEqual(0.0f, result);                
+        Assert.AreEqual(0.0f, result1);                
+        Assert.AreEqual(0.0f, result2);                
     }
 
     [Test]
-    public void CheckScoresMinWhereEmployeeScored()
+    public void CheckNegativeScoresStatisticsWhereEmployeeIsScored()
     {
         // arrange
         Employee employee = new Employee("Zygmunt","August");
-        employee.AddScore(0);
-        employee.AddScore(2);
-        employee.AddScore(4);
+        employee.AddScore(-3);
+        employee.AddScore(-2);
+        employee.AddScore(-4);
 
         // act
         var statistics = employee.GetStatistics();
-        var result = statistics.Min;
+        var result = statistics.Average;
+        var result1 = statistics.Min;
+        var result2 = statistics.Max;
 
         // assert
-        Assert.AreEqual(0.0f, result);                
+        Assert.AreEqual(-3.0f, result);                
+        Assert.AreEqual(-4.0f, result1);                
+        Assert.AreEqual(-2.0f, result2);                
     }
 
-    [Test]
-    public void CheckScoresMinWhereEmployeeNotScored()
-    {
-        // arrange
-        Employee employee = new Employee("Władysław","Łokietek");
-
-        // act
-        var statistics = employee.GetStatistics();
-        var result = statistics.Min;
-
-        // assert
-        Assert.AreEqual(0.0f, result);                
-    }
 
     [Test]
-    public void CheckScoresMaxWhereEmployeeScored()
+    public void CheckMixedScoresStatisticsWhereEmployeeIsScored()
     {
         // arrange
         Employee employee = new Employee("Kazimierz","Wielki");
-        employee.AddScore(0);
         employee.AddScore(2);
-        employee.AddScore(4);
+        employee.AddScore(0);
+        employee.AddScore(-2);
 
         // act
         var statistics = employee.GetStatistics();
-        var result = statistics.Max;
-
-        // assert
-        Assert.AreEqual(4.0f, result);                
-    }
-
-    [Test]
-    public void CheckScoresMaxWhereEmployeeNotScored()
-    {
-        // arrange
-        Employee employee = new Employee("Władysław","Jagiełło");
-
-        // act
-        var statistics = employee.GetStatistics();
-        var result = statistics.Max;
+        var result = statistics.Average;
+        var result1 = statistics.Min;
+        var result2 = statistics.Max;
 
         // assert
         Assert.AreEqual(0.0f, result);                
+        Assert.AreEqual(-2.0f, result1);                
+        Assert.AreEqual(2.0f, result2);                
     }
 }
