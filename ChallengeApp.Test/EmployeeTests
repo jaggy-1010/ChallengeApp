@@ -1,8 +1,0 @@
-using ChallengeApp;
-namespace ChallengeApp.Test;
-
-public class EmployeeTests
-
-{
-
-}

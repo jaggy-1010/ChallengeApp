@@ -30,7 +30,7 @@ public class Employee
             statistics.Average += score;
         }
 
-        if (this.scores.Count != 0)
+        if (this.scores.Count != 0 )
         {
             statistics.Average /= this.scores.Count;
         }
