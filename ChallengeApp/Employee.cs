@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace ChallengeApp;
 
 public class Employee
@@ -14,9 +16,86 @@ public class Employee
 
     public void AddScore(float score)
     {
+        if (score >= 0 && score <= 100)
+        {
         this.scores.Add(score);
+        }
+        else
+        {
+            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
+        }
     }
     
+    public void AddScore(string score)
+    {
+        if (float.TryParse(score, out float result))
+        {
+            this.AddScore(result);
+        }
+        else
+        {
+            Console.WriteLine("String is not float");
+        }
+    }
+    public void AddScore(int score)
+    {
+        if (score >= 0 && score <= 100)
+        {
+        this.scores.Add(score);
+        }
+        else
+        {
+            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
+        }
+    }
+    
+    public void AddScore(long score)
+    {
+        if (score >= 0 && score <= 100)
+        {
+        this.scores.Add(score);
+        }
+        else
+        {
+            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
+        }
+    }
+
+    public void AddScore(ulong score)
+    {
+        if (score >= 0 && score <= 100)
+        {
+        this.scores.Add(score);
+        }
+        else
+        {
+            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
+        }
+    }
+
+    public void AddScore(double score)
+    {
+        if (score >= 0 && score <= 100)
+        {
+        this.scores.Add((float)score);
+        }
+        else
+        {
+            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
+        }
+    }
+
+    public void AddScore(decimal score)
+    {
+        if (score >= 0 && score <= 100)
+        {
+        this.scores.Add((float)score);
+        }
+        else
+        {
+            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
+        }
+    }
     public Statistics GetStatistics()
     {
         var statistics = new Statistics();

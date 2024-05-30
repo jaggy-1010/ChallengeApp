@@ -2,10 +2,12 @@
 
 var employee = new Employee("Mateusz", "Malinowski");
 // /*
-employee.AddScore(5);
-employee.AddScore(4);
-employee.AddScore(7);
-employee.AddScore(7);
+employee.AddScore("Zygmunt");
+employee.AddScore("40000");
+employee.AddScore(2000);
+employee.AddScore(20L);
+employee.AddScore(79UL);
+employee.AddScore(99M);
 employee.AddScore(9);
 // */
 
