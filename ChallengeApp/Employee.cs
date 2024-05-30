@@ -8,7 +8,7 @@ public class Employee
     public string Surname {get; private set;}
     private List<float> scores = new List<float>();
 
-    public Employee ( string name , string surname)
+    public Employee (string name , string surname)
     {
         this.Name = name;
         this.Surname = surname;
@@ -39,62 +39,32 @@ public class Employee
     }
     public void AddScore(int score)
     {
-        if (score >= 0 && score <= 100)
-        {
-        this.scores.Add(score);
-        }
-        else
-        {
-            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
-        }
+        float result = score;
+        this.AddScore(result);
     }
     
     public void AddScore(long score)
     {
-        if (score >= 0 && score <= 100)
-        {
-        this.scores.Add(score);
-        }
-        else
-        {
-            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
-        }
+        float result = score;
+        this.AddScore(result);
     }
 
     public void AddScore(ulong score)
     {
-        if (score >= 0 && score <= 100)
-        {
-        this.scores.Add(score);
-        }
-        else
-        {
-            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
-        }
+        float result = score;
+        this.AddScore(result);
     }
 
     public void AddScore(double score)
     {
-        if (score >= 0 && score <= 100)
-        {
-        this.scores.Add((float)score);
-        }
-        else
-        {
-            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
-        }
+        float result = (float)score;
+        this.AddScore(result);
     }
 
     public void AddScore(decimal score)
     {
-        if (score >= 0 && score <= 100)
-        {
-        this.scores.Add((float)score);
-        }
-        else
-        {
-            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
-        }
+        float result = (float)score;
+        this.AddScore(result);
     }
     public Statistics GetStatistics()
     {
