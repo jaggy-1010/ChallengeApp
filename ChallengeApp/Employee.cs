@@ -22,8 +22,8 @@ public class Employee
         }
         else
         {
-            Console.WriteLine("Ocena pracownika możliwa w zakresie od 0 do 100 punktów.");
-        }
+            Console.WriteLine("Acceptable scores from 0 to 100.");
+       }
     }
     
     public void AddScore(string score)

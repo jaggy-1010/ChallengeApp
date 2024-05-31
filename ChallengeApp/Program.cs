@@ -13,7 +13,7 @@ employee.AddScore(9);
 
 var statistics = employee.GetStatistics();
 
-Console.WriteLine("\nUsing GetStatistics()");
-Console.WriteLine($"{employee.Name} {employee.Surname} average score: {statistics.Average:N2}");
-Console.WriteLine($"{employee.Name} {employee.Surname} min score: {statistics.Min}");
-Console.WriteLine($"{employee.Name} {employee.Surname} max score: {statistics.Max} \n");
+Console.WriteLine($"\nStatistics of employee: {employee.Name} {employee.Surname}");
+Console.WriteLine($"Average score: {statistics.Average:N2}");
+Console.WriteLine($"Min score: {statistics.Min}");
+Console.WriteLine($"Max score: {statistics.Max}\n");
