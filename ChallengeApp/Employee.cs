@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace ChallengeApp;
 
 public class Employee
@@ -31,6 +29,11 @@ public class Employee
         if (float.TryParse(score, out float result))
         {
             this.AddScore(result);
+        }
+        else if(score.Length == 1)
+        {
+            char result1 = Convert.ToChar(score);
+            this.AddScore(result1);
         }
         else
         {
@@ -66,6 +69,36 @@ public class Employee
         float result = (float)score;
         this.AddScore(result);
     }
+
+    public void AddScore(char score)
+    {
+        switch(score)
+        {
+            case 'A':
+            case 'a':
+                this.scores.Add(100);
+                break;
+            case 'B':
+            case 'b':
+                this.scores.Add(80);
+                break;
+            case 'C':
+            case 'c':
+                this.scores.Add(60);
+                break;
+            case 'D':
+            case 'd':
+                this.scores.Add(40);
+                break;
+            case 'E':
+            case 'e':
+                this.scores.Add(20);
+                break;
+            default:
+                Console.WriteLine("Wrong input value, try again!");
+                break;
+        }
+    }
     public Statistics GetStatistics()
     {
         var statistics = new Statistics();
@@ -82,11 +115,31 @@ public class Employee
         if (this.scores.Count != 0 )
         {
             statistics.Average /= this.scores.Count;
+
+            switch(statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
         }
         else
         {   
             statistics.Min = 0;
             statistics.Max = 0;
+            statistics.AverageLetter = 'E';
             string message = "Employee has not been scored.";
             Console.WriteLine(message);
         }

@@ -9,9 +9,9 @@ public class StatisticsTests
     {
         // arrange
         Employee employee = new Employee("Stefan","Batory");
-        employee.AddScore(1);
-        employee.AddScore(2);
-        employee.AddScore(4);
+        employee.AddScore("1");
+        employee.AddScore("2");
+        employee.AddScore("4");
 
         // act
         var statistics = employee.GetStatistics();
@@ -20,9 +20,9 @@ public class StatisticsTests
         var resultMax = statistics.Max;
 
         // assert
-        Assert.AreEqual(Math.Round(2.33f, 2), resultAvg);                
-        Assert.AreEqual(1.0f, resultMin);                
-        Assert.AreEqual(4.0f, resultMax);                
+        Assert.AreEqual(Math.Round(2.33, 2), resultAvg);                
+        Assert.AreEqual(1.0, resultMin);                
+        Assert.AreEqual(4.0, resultMax);                
     }
 
     [Test]
@@ -38,9 +38,9 @@ public class StatisticsTests
         var resultMax = statistics.Max;
 
         // assert
-        Assert.AreEqual(Math.Round(0.0f, 2), resultAvg);                
-        Assert.AreEqual(0.0f, resultMin);                
-        Assert.AreEqual(0.0f, resultMax);                
+        Assert.AreEqual(Math.Round(0.0, 2), resultAvg);                
+        Assert.AreEqual(0.0, resultMin);                
+        Assert.AreEqual(0.0, resultMax);                
     }
 }
 
