@@ -27,18 +27,25 @@ public class Employee
     
     public void AddScore(string score)
     {
-        if (float.TryParse(score, out float result))
+        if (score != null)
         {
-            this.AddScore(result);
-        }
-        else if(score.Length == 1)
-        {
-            char result1 = Convert.ToChar(score);
-            this.AddScore(result1);
+            if (float.TryParse(score, out float result))
+            {
+                this.AddScore(result);
+            }
+            else if(score.Length == 1)
+            {
+                char result1 = Convert.ToChar(score);
+                this.AddScore(result1);
+            }
+            else
+            {
+                Console.WriteLine("String is not float");
+            }
         }
         else
         {
-            Console.WriteLine("String is not float");
+            Console.WriteLine("Błąd programu. Zawiadom autora.");
         }
     }
 
