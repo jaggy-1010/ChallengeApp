@@ -81,27 +81,35 @@ public class Employee
 
     public void AddScore(char score)
     {
+
+        float result = score;
+
         switch(score)
         {
             case 'A':
             case 'a':
-                this.scores.Add(100);
+                result = 100;
+                this.scores.Add(result);
                 break;
             case 'B':
             case 'b':
-                this.scores.Add(80);
+                result = 80;
+                this.scores.Add(result);
                 break;
             case 'C':
             case 'c':
-                this.scores.Add(60);
+                result = 60;
+                this.scores.Add(result);
                 break;
             case 'D':
             case 'd':
-                this.scores.Add(40);
+                result = 40;
+                this.scores.Add(result);
                 break;
             case 'E':
             case 'e':
-                this.scores.Add(20);
+                result = 20;
+                this.scores.Add(result);
                 break;
             default:
                 Console.WriteLine("Wrong input value, try again!");
