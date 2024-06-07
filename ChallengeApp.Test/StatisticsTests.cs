@@ -9,20 +9,27 @@ public class StatisticsTests
     {
         // arrange
         Employee employee = new Employee("Stefan","Batory");
-        employee.AddScore("1");
-        employee.AddScore("2");
-        employee.AddScore("4");
+        employee.AddScore("100");
+        employee.AddScore("25");
+        employee.AddScore("40");
+        employee.AddScore("c");
+        employee.AddScore("A");
+        employee.AddScore("nowak");
+        employee.AddScore("124");
+        employee.AddScore("G");
 
         // act
         var statistics = employee.GetStatistics();
         var resultAvg = Math.Round(statistics.Average, 2);
         var resultMin = statistics.Min;
         var resultMax = statistics.Max;
+        var resultAvgL = statistics.AverageLetter;
 
         // assert
-        Assert.AreEqual(Math.Round(2.33, 2), resultAvg);                
-        Assert.AreEqual(1.0, resultMin);                
-        Assert.AreEqual(4.0, resultMax);                
+        Assert.AreEqual(Math.Round(65.00, 2), resultAvg);                
+        Assert.AreEqual(25.0, resultMin);                
+        Assert.AreEqual(100.0, resultMax);                
+        Assert.AreEqual('B', resultAvgL);                
     }
 
     [Test]
@@ -42,5 +49,6 @@ public class StatisticsTests
         Assert.AreEqual(0.0, resultMin);                
         Assert.AreEqual(0.0, resultMax);                
     }
+
 }
 
