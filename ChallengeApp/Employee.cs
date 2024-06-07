@@ -89,32 +89,33 @@ public class Employee
             case 'A':
             case 'a':
                 result = 100;
-                this.scores.Add(result);
+                this.AddScore(result);
                 break;
             case 'B':
             case 'b':
                 result = 80;
-                this.scores.Add(result);
+                this.AddScore(result);
                 break;
             case 'C':
             case 'c':
                 result = 60;
-                this.scores.Add(result);
+                this.AddScore(result);
                 break;
             case 'D':
             case 'd':
                 result = 40;
-                this.scores.Add(result);
+                this.AddScore(result);
                 break;
             case 'E':
             case 'e':
                 result = 20;
-                this.scores.Add(result);
+                this.AddScore(result);
                 break;
             default:
                 Console.WriteLine("Wrong input value, try again!");
                 break;
         }
+
     }
     public Statistics GetStatistics()
     {
