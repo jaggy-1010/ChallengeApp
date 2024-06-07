@@ -2,9 +2,8 @@ namespace ChallengeApp;
 
 public class Employee
 {
-    public string Name { get; private set; }
-    public string Surname { get; private set; }
-
+    public string Name { get; private set;}
+    public string Surname {get; private set;}
     private List<float> scores = new List<float>();
 
     public Employee (string name , string surname)
@@ -41,7 +40,6 @@ public class Employee
             Console.WriteLine("String is not float");
         }
     }
-
     public void AddScore(int score)
     {
         float result = score;

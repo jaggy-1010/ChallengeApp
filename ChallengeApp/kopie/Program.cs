@@ -6,7 +6,7 @@ Console.WriteLine();
 Console.WriteLine("To leave the program enter the 'q' key");
 Console.WriteLine();
 
-Employee employee = new Employee("Mateusz", "Malinowski");
+var employee = new Employee("Mateusz", "Malinowski");
 
 while (true)
 {
