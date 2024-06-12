@@ -8,9 +8,10 @@ Console.WriteLine();
 
 Employee employee = new Employee("Mateusz", "Malinowski");
 
+int idx = 0;
+
 while (true)
 {
-    int idx = 0;
     Console.Write("Enter the next employee evaluation: ");
     var input = Console.ReadLine();
 
