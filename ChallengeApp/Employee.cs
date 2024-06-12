@@ -170,4 +170,16 @@ public class Employee
         }
         return statistics;
     }
+
+    public bool HasScore()
+    {
+	    if (scores.Capacity != 0)
+	    {
+		    return true;
+	    }
+	    else
+	    {
+		    return false;
+	    }
+    }
 }

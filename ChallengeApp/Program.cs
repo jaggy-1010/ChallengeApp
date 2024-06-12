@@ -8,31 +8,28 @@ Console.WriteLine();
 
 Employee employee = new Employee("Mateusz", "Malinowski");
 
-int idx = 0;
-
 while (true)
 {
     Console.Write("Enter the next employee evaluation: ");
     var input = Console.ReadLine();
 
-    if (idx == 0 && (input == "q" || input == "Q"))
+    if (input == "q" || input == "Q")
     {
-        Console.WriteLine("\nEmployee has NOT been scored!");
-        break;
-    }
-    else if (input == "q" || input == "Q")
-    {
+	    if (!employee.HasScore())
+	    {
+		    Console.WriteLine("\nEmployee has NOT been scored!");
+	    }
+
         break;
     }
     try
     {
-    employee.AddScore(input);
+    	employee.AddScore(input);
     }
     catch(Exception e)
     {
         Console.WriteLine($"Exception catched: {e.Message}");
     }
-    idx += 1;
 }
 
 var statistics = employee.GetStatistics();
