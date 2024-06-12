@@ -10,14 +10,28 @@ Employee employee = new Employee("Mateusz", "Malinowski");
 
 while (true)
 {
+    int idx = 0;
     Console.Write("Enter the next employee evaluation: ");
     var input = Console.ReadLine();
 
-    if (input == "q" || input == "Q")
+    if (idx == 0 && (input == "q" || input == "Q"))
+    {
+        Console.WriteLine("\nEmployee has NOT been scored!");
+        break;
+    }
+    else if (input == "q" || input == "Q")
     {
         break;
     }
+    try
+    {
     employee.AddScore(input);
+    }
+    catch(Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
+    idx += 1;
 }
 
 var statistics = employee.GetStatistics();
@@ -26,4 +40,4 @@ Console.WriteLine($"\nStatistics of employee: {employee.Name} {employee.Surname}
 Console.WriteLine($"Average score: {statistics.Average:N2}");
 Console.WriteLine($"Min score: {statistics.Min}");
 Console.WriteLine($"Max score: {statistics.Max}");
-Console.WriteLine($"Average Letter: {statistics.AverageLetter}\n");
+Console.WriteLine($"Average Letter: {statistics.AverageLetter}");

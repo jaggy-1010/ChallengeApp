@@ -2,6 +2,20 @@ namespace ChallengeApp;
 
 public class Employee
 {
+    // Grade by letters
+    private const int GRADE_A = 100;
+    private const int GRADE_B = 80;
+    private const int GRADE_C = 60;
+    private const int GRADE_D = 40;
+    private const int GRADE_E = 20;
+
+    // Average level by letters
+    private const char AVERAGE_LEVEL_A = 'A';
+    private const char AVERAGE_LEVEL_B = 'B';
+    private const char AVERAGE_LEVEL_C = 'C';
+    private const char AVERAGE_LEVEL_D = 'D';
+    private const char AVERAGE_LEVEL_E = 'E';
+
     public string Name { get; private set; }
     public string Surname { get; private set; }
 
@@ -21,8 +35,8 @@ public class Employee
         }
         else
         {
-            Console.WriteLine("Acceptable scores from 0 to 100.");
-       }
+            throw new Exception("Acceptable scores from 0 to 100.");
+        }
     }
     
     public void AddScore(string score)
@@ -40,12 +54,12 @@ public class Employee
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float");
             }
         }
         else
         {
-            Console.WriteLine("Błąd programu. Zawiadom autora.");
+            throw new Exception("Programm error! Please call service!");
         }
     }
 
@@ -56,12 +70,6 @@ public class Employee
     }
     
     public void AddScore(long score)
-    {
-        float result = score;
-        this.AddScore(result);
-    }
-
-    public void AddScore(ulong score)
     {
         float result = score;
         this.AddScore(result);
@@ -81,48 +89,49 @@ public class Employee
 
     public void AddScore(char score)
     {
-
         float result = score;
 
         switch(score)
         {
             case 'A':
             case 'a':
-                result = 100;
+                result = GRADE_A;
                 this.AddScore(result);
                 break;
             case 'B':
             case 'b':
-                result = 80;
+                result = GRADE_B;
                 this.AddScore(result);
                 break;
             case 'C':
             case 'c':
-                result = 60;
+                result = GRADE_C;
                 this.AddScore(result);
                 break;
             case 'D':
             case 'd':
-                result = 40;
+                result = GRADE_D;
                 this.AddScore(result);
                 break;
             case 'E':
             case 'e':
-                result = 20;
+                result = GRADE_E;
                 this.AddScore(result);
                 break;
             default:
-                Console.WriteLine("Wrong input value, try again!");
+                throw new Exception("Wrong input value, try again!");
                 break;
         }
-
     }
+
     public Statistics GetStatistics()
     {
         var statistics = new Statistics();
+
         statistics.Average = 0;
         statistics.Min = float.MaxValue;
         statistics.Max = float.MinValue;
+
         foreach (var score in this.scores)
         {
             statistics.Min = Math.Min(statistics.Min, score);
@@ -136,20 +145,20 @@ public class Employee
 
             switch(statistics.Average)
             {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
+                case var average when average >= GRADE_B:
+                    statistics.AverageLetter = AVERAGE_LEVEL_A;
                     break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
+                case var average when average >= GRADE_C:
+                    statistics.AverageLetter = AVERAGE_LEVEL_B;
                     break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
+                case var average when average >= GRADE_D:
+                    statistics.AverageLetter = AVERAGE_LEVEL_C;
                     break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
+                case var average when average >= GRADE_E:
+                    statistics.AverageLetter = AVERAGE_LEVEL_D;
                     break;
                 default:
-                    statistics.AverageLetter = 'E';
+                    statistics.AverageLetter = AVERAGE_LEVEL_E;
                     break;
             }
         }
@@ -157,9 +166,7 @@ public class Employee
         {   
             statistics.Min = 0;
             statistics.Max = 0;
-            statistics.AverageLetter = 'E';
-            string message = "Employee has not been scored.";
-            Console.WriteLine(message);
+            statistics.AverageLetter = AVERAGE_LEVEL_E;
         }
         return statistics;
     }
