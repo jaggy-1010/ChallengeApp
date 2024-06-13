@@ -173,15 +173,14 @@ public class Employee
 
     public bool HasScore()
     {
-	    if (scores.Capacity != 0)
+	    if (scores.Count != 0)
+
 	    {
-            Console.WriteLine("Lista niepusta, ilość elementów w liście: " + scores.Capacity);
 		    return true;
 	    }
 	    else
      
 	    {
-            Console.WriteLine("Lista pusta, ilość elementów w liście: " + scores.Capacity);
 		    return false;
 	    }
     }

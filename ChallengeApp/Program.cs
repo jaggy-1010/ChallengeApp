@@ -17,14 +17,13 @@ while (true)
     {
 	    if (!employee.HasScore())
 	    {
-		    Console.WriteLine("\nEmployee has NOT been scored! -> " + employee.HasScore());
+		    Console.WriteLine("\nEmployee has NOT been scored!");
 	    }
         break;
     }
     try
     {
     	employee.AddScore(input);
-        Console.WriteLine("HasScore() -> :" + employee.HasScore());
     }
     catch(Exception e)
     {
