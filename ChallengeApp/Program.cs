@@ -17,9 +17,8 @@ while (true)
     {
 	    if (!employee.HasScore())
 	    {
-		    Console.WriteLine("\nEmployee has NOT been scored!");
+		    Console.WriteLine("\nEmployee has NOT been scored! -> " + employee.HasScore());
 	    }
-
         break;
     }
     try
