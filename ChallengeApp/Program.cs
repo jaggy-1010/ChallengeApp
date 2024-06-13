@@ -24,6 +24,7 @@ while (true)
     try
     {
     	employee.AddScore(input);
+        Console.WriteLine("HasScore() -> :" + employee.HasScore());
     }
     catch(Exception e)
     {

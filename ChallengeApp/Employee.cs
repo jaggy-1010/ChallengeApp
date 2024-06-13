@@ -175,13 +175,13 @@ public class Employee
     {
 	    if (scores.Capacity != 0)
 	    {
-            Console.WriteLine("Lista niepusta, ilość elementów: " + scores.Capacity);
+            Console.WriteLine("Lista niepusta");
 		    return true;
 	    }
 	    else
      
 	    {
-            Console.WriteLine("Lista pusta, ilość elementów: " + scores.Capacity);
+            Console.WriteLine("Lista pusta");
 		    return false;
 	    }
     }
