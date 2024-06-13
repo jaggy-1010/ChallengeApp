@@ -174,12 +174,10 @@ public class Employee
     public bool HasScore()
     {
 	    if (scores.Count != 0)
-
 	    {
 		    return true;
 	    }
 	    else
-     
 	    {
 		    return false;
 	    }
