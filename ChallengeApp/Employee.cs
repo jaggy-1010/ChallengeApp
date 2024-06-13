@@ -1,6 +1,6 @@
 namespace ChallengeApp;
 
-public class Employee
+public class Employee : Person
 {
     // Grade by letters
     private const int GRADE_A = 100;
@@ -16,16 +16,14 @@ public class Employee
     private const char AVERAGE_LEVEL_D = 'D';
     private const char AVERAGE_LEVEL_E = 'E';
 
-    public string Name { get; private set; }
-    public string Surname { get; private set; }
 
-    private List<float> scores = new List<float>();
+    private List<float> scores = new List<float>();    
 
-    public Employee (string name , string surname)
-    {
-        this.Name = name;
-        this.Surname = surname;
-    }
+    public Employee () : this("no name given", "no surname given", "no gender stated") {}
+
+    public Employee (string name , string surname) : this(name, surname, "no gender stated") {}
+
+    public Employee (string name , string surname, string sex) : base(name, surname, sex){}
 
     public void AddScore(float score)
     {
@@ -120,7 +118,6 @@ public class Employee
                 break;
             default:
                 throw new Exception("Wrong input value, try again!");
-                break;
         }
     }
 
@@ -173,7 +170,7 @@ public class Employee
 
     public bool HasScore()
     {
-	    if (scores.Count != 0)
+        if (scores.Count != 0)
 	    {
 		    return true;
 	    }

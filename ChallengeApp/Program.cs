@@ -33,7 +33,7 @@ while (true)
 
 var statistics = employee.GetStatistics();
 
-Console.WriteLine($"\nStatistics of employee: {employee.Name} {employee.Surname}");
+Console.WriteLine($"\nStatistics of employee: {employee.Name} {employee.Surname} [{employee.Sex}]");
 Console.WriteLine($"Average score: {statistics.Average:N2}");
 Console.WriteLine($"Min score: {statistics.Min}");
 Console.WriteLine($"Max score: {statistics.Max}");
