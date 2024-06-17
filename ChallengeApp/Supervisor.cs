@@ -59,78 +59,62 @@ public class Supervisor : IEmployee
             switch(score)
             {
                 case "6":
-                    result = GRADE_6;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_6);
                     break;
                 case "-6":
                 case "6-":
-                    result = GRADE_6_MINUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_6_MINUS);
                     break;
                 case "+5":
                 case "5+":
-                    result = GRADE_5_PLUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_5_PLUS);
                     break;
                 case "5":
-                    result = GRADE_5;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_5);
                     break;
                 case "-5":
                 case "5-":
-                    result = GRADE_5_MINUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_5_MINUS);
                     break;
                 case "+4":
                 case "4+":
-                    result = GRADE_4_PLUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_4_PLUS);
                     break;
                 case "4":
-                    result = GRADE_4;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_4);
                     break;
                 case "-4":
                 case "4-":
-                    result = GRADE_4_MINUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_4_MINUS);
                     break;
                 case "+3":
                 case "3+":
-                    result = GRADE_3_PLUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_3_PLUS);
                     break;
                 case "3":
-                    result = GRADE_3;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_3);
                     break;
                 case "-3":
                 case "3-":
-                    result = GRADE_3_MINUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_3_MINUS);
                     break;
                 case "+2":
                 case "2+":
-                    result = GRADE_2_PLUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_2_PLUS);
                     break;
                 case "2":
-                    result = GRADE_2;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_2);
                     break;
                 case "-2":
                 case "2-":
-                    result = GRADE_2_MINUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_2_MINUS);
                     break;
                 case "+1":
                 case "1+":
-                    result = GRADE_1_PLUS;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_1_PLUS);
                     break;
                 case "1":
-                    result = GRADE_1;
-                    this.AddScore(result);
+                    this.AddScore(GRADE_1);
                     break;
                 default:
                     throw new Exception("Wrong input value, try again!");

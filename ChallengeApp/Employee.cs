@@ -96,28 +96,23 @@ public class Employee : IEmployee
         {
             case 'A':
             case 'a':
-                result = GRADE_A;
-                this.AddScore(result);
+                this.AddScore(GRADE_A);
                 break;
             case 'B':
             case 'b':
-                result = GRADE_B;
-                this.AddScore(result);
+                this.AddScore(GRADE_B);
                 break;
             case 'C':
             case 'c':
-                result = GRADE_C;
-                this.AddScore(result);
+                this.AddScore(GRADE_C);
                 break;
             case 'D':
             case 'd':
-                result = GRADE_D;
-                this.AddScore(result);
+                this.AddScore(GRADE_D);
                 break;
             case 'E':
             case 'e':
-                result = GRADE_E;
-                this.AddScore(result);
+                this.AddScore(GRADE_E);
                 break;
             default:
                 throw new Exception("Wrong input value, try again!");
