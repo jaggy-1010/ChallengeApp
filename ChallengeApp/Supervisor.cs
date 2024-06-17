@@ -2,32 +2,6 @@ namespace ChallengeApp;
 
 public class Supervisor : IEmployee 
 {
-    // Grade by school marks
-    private const int GRADE_6 = 100;
-    private const int GRADE_6_MINUS = 95;
-    private const int GRADE_5_PLUS = 85;
-    private const int GRADE_5 = 80;
-    private const int GRADE_5_MINUS = 75;
-    private const int GRADE_4_PLUS = 65;
-    private const int GRADE_4 = 60;
-    private const int GRADE_4_MINUS = 55;
-    private const int GRADE_3_PLUS = 45;
-    private const int GRADE_3 = 40;
-    private const int GRADE_3_MINUS = 35;
-    private const int GRADE_2_PLUS = 25;
-    private const int GRADE_2 = 20;
-    private const int GRADE_2_MINUS = 15;
-    private const int GRADE_1_PLUS = 5;
-    private const int GRADE_1 = 0;
-
-    // Average level by letters
-    private const char AVERAGE_LEVEL_A = 'A';
-    private const char AVERAGE_LEVEL_B = 'B';
-    private const char AVERAGE_LEVEL_C = 'C';
-    private const char AVERAGE_LEVEL_D = 'D';
-    private const char AVERAGE_LEVEL_E = 'E';
-
-
     private List<float> scores = new List<float>();    
 
     public Supervisor(string name, string surname) 
@@ -59,62 +33,62 @@ public class Supervisor : IEmployee
             switch(score)
             {
                 case "6":
-                    this.AddScore(GRADE_6);
+                    this.AddScore(Param.GRADE_6);
                     break;
                 case "-6":
                 case "6-":
-                    this.AddScore(GRADE_6_MINUS);
+                    this.AddScore(Param.GRADE_6_MINUS);
                     break;
                 case "+5":
                 case "5+":
-                    this.AddScore(GRADE_5_PLUS);
+                    this.AddScore(Param.GRADE_5_PLUS);
                     break;
                 case "5":
-                    this.AddScore(GRADE_5);
+                    this.AddScore(Param.GRADE_5);
                     break;
                 case "-5":
                 case "5-":
-                    this.AddScore(GRADE_5_MINUS);
+                    this.AddScore(Param.GRADE_5_MINUS);
                     break;
                 case "+4":
                 case "4+":
-                    this.AddScore(GRADE_4_PLUS);
+                    this.AddScore(Param.GRADE_4_PLUS);
                     break;
                 case "4":
-                    this.AddScore(GRADE_4);
+                    this.AddScore(Param.GRADE_4);
                     break;
                 case "-4":
                 case "4-":
-                    this.AddScore(GRADE_4_MINUS);
+                    this.AddScore(Param.GRADE_4_MINUS);
                     break;
                 case "+3":
                 case "3+":
-                    this.AddScore(GRADE_3_PLUS);
+                    this.AddScore(Param.GRADE_3_PLUS);
                     break;
                 case "3":
-                    this.AddScore(GRADE_3);
+                    this.AddScore(Param.GRADE_3);
                     break;
                 case "-3":
                 case "3-":
-                    this.AddScore(GRADE_3_MINUS);
+                    this.AddScore(Param.GRADE_3_MINUS);
                     break;
                 case "+2":
                 case "2+":
-                    this.AddScore(GRADE_2_PLUS);
+                    this.AddScore(Param.GRADE_2_PLUS);
                     break;
                 case "2":
-                    this.AddScore(GRADE_2);
+                    this.AddScore(Param.GRADE_2);
                     break;
                 case "-2":
                 case "2-":
-                    this.AddScore(GRADE_2_MINUS);
+                    this.AddScore(Param.GRADE_2_MINUS);
                     break;
                 case "+1":
                 case "1+":
-                    this.AddScore(GRADE_1_PLUS);
+                    this.AddScore(Param.GRADE_1_PLUS);
                     break;
                 case "1":
-                    this.AddScore(GRADE_1);
+                    this.AddScore(Param.GRADE_1);
                     break;
                 default:
                     throw new Exception("Wrong input value, try again!");
@@ -182,20 +156,20 @@ public class Supervisor : IEmployee
 
             switch(statistics.Average)
             {
-                case var average when average >= GRADE_5:
-                    statistics.AverageLetter = AVERAGE_LEVEL_A;
+                case var average when average >= Param.GRADE_5:
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_A;
                     break;
-                case var average when average >= GRADE_4:
-                    statistics.AverageLetter = AVERAGE_LEVEL_B;
+                case var average when average >= Param.GRADE_4:
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_B;
                     break;
-                case var average when average >= GRADE_3:
-                    statistics.AverageLetter = AVERAGE_LEVEL_C;
+                case var average when average >= Param.GRADE_3:
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_C;
                     break;
-                case var average when average >= GRADE_2:
-                    statistics.AverageLetter = AVERAGE_LEVEL_D;
+                case var average when average >= Param.GRADE_2:
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_D;
                     break;
                 default:
-                    statistics.AverageLetter = AVERAGE_LEVEL_E;
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_E;
                     break;
             }
         }
@@ -203,7 +177,7 @@ public class Supervisor : IEmployee
         {   
             statistics.Min = 0;
             statistics.Max = 0;
-            statistics.AverageLetter = AVERAGE_LEVEL_E;
+            statistics.AverageLetter = Param.AVERAGE_LEVEL_E;
         }
         return statistics;
     }

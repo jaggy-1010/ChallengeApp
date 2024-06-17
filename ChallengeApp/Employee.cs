@@ -2,21 +2,6 @@ namespace ChallengeApp;
 
 public class Employee : IEmployee 
 {
-    // Grade by letters
-    private const int GRADE_A = 100;
-    private const int GRADE_B = 80;
-    private const int GRADE_C = 60;
-    private const int GRADE_D = 40;
-    private const int GRADE_E = 20;
-
-    // Average level by letters
-    private const char AVERAGE_LEVEL_A = 'A';
-    private const char AVERAGE_LEVEL_B = 'B';
-    private const char AVERAGE_LEVEL_C = 'C';
-    private const char AVERAGE_LEVEL_D = 'D';
-    private const char AVERAGE_LEVEL_E = 'E';
-
-
     private List<float> scores = new List<float>();    
 
     public Employee (string name, string surname) 
@@ -96,23 +81,23 @@ public class Employee : IEmployee
         {
             case 'A':
             case 'a':
-                this.AddScore(GRADE_A);
+                this.AddScore(Param.GRADE_A);
                 break;
             case 'B':
             case 'b':
-                this.AddScore(GRADE_B);
+                this.AddScore(Param.GRADE_B);
                 break;
             case 'C':
             case 'c':
-                this.AddScore(GRADE_C);
+                this.AddScore(Param.GRADE_C);
                 break;
             case 'D':
             case 'd':
-                this.AddScore(GRADE_D);
+                this.AddScore(Param.GRADE_D);
                 break;
             case 'E':
             case 'e':
-                this.AddScore(GRADE_E);
+                this.AddScore(Param.GRADE_E);
                 break;
             default:
                 throw new Exception("Wrong input value, try again!");
@@ -140,20 +125,20 @@ public class Employee : IEmployee
 
             switch(statistics.Average)
             {
-                case var average when average >= GRADE_B:
-                    statistics.AverageLetter = AVERAGE_LEVEL_A;
+                case var average when average >= Param.GRADE_B:
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_A;
                     break;
-                case var average when average >= GRADE_C:
-                    statistics.AverageLetter = AVERAGE_LEVEL_B;
+                case var average when average >= Param.GRADE_C:
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_B;
                     break;
-                case var average when average >= GRADE_D:
-                    statistics.AverageLetter = AVERAGE_LEVEL_C;
+                case var average when average >= Param.GRADE_D:
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_C;
                     break;
-                case var average when average >= GRADE_E:
-                    statistics.AverageLetter = AVERAGE_LEVEL_D;
+                case var average when average >= Param.GRADE_E:
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_D;
                     break;
                 default:
-                    statistics.AverageLetter = AVERAGE_LEVEL_E;
+                    statistics.AverageLetter = Param.AVERAGE_LEVEL_E;
                     break;
             }
         }
@@ -161,7 +146,7 @@ public class Employee : IEmployee
         {   
             statistics.Min = 0;
             statistics.Max = 0;
-            statistics.AverageLetter = AVERAGE_LEVEL_E;
+            statistics.AverageLetter = Param.AVERAGE_LEVEL_E;
         }
         return statistics;
     }
