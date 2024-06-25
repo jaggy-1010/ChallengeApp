@@ -6,7 +6,50 @@ Console.WriteLine();
 Console.WriteLine("To leave the program enter the 'q' key");
 Console.WriteLine();
 
-Employee employee = new Employee("Mateusz", "Malinowski");
+var employeeInFile = new EmployeeInFile("Jan", "Kowalski");
+employeeInFile.AddScore(88.7f);
+employeeInFile.AddScore(88);
+employeeInFile.AddScore(77L);
+employeeInFile.AddScore(88.3);
+employeeInFile.AddScore(58.7M);
+employeeInFile.AddScore("24");
+employeeInFile.AddScore("82,78");
+employeeInFile.AddScore('A');
+
+Console.WriteLine($"Grades scored by employee {employeeInFile.Name} {employeeInFile.Surname}:");
+
+static void ShowThePointsScored()
+{
+    if (File.Exists(Param.FILE_NAME))
+    {
+        using (var reader = File.OpenText(Param.FILE_NAME))
+        {
+            var line = reader.ReadLine();
+
+            while (line != null)
+            {
+                var score = float.Parse(line);
+                Console.WriteLine(score);
+                line = reader.ReadLine();
+            }
+        }
+    }
+}
+
+ShowThePointsScored();
+
+var statistics = employeeInFile.GetStatistics();
+Console.WriteLine($"\nStatistics of employee {employeeInFile.Name} {employeeInFile.Surname} written to file:");
+Console.WriteLine($"Average score: {statistics.Average:N2}");
+Console.WriteLine($"Min score: {statistics.Min}");
+Console.WriteLine($"Max score: {statistics.Max}");
+Console.WriteLine($"Average Letter: {statistics.AverageLetter}");
+Console.WriteLine();
+
+var employeeInMemory = new EmployeeInMemory("Mateusz", "Malinowski");
+Console.WriteLine($"Enter the points scored by the employee {employeeInMemory.Name} {employeeInMemory.Surname}.");
+Console.WriteLine("Below grades will not be remembered and will disappear when the programm stops!");
+Console.WriteLine("If you don't want continue press the 'q' key.");
 
 while (true)
 {
@@ -15,7 +58,7 @@ while (true)
 
     if (input == "q" || input == "Q")
     {
-	    if (!employee.HasScore())
+	    if (!employeeInMemory.HasScore())
 	    {
 		    Console.WriteLine("\nThe employee has NOT been scored!");
 	    }
@@ -23,7 +66,7 @@ while (true)
     }
     try
     {
-    	employee.AddScore(input);
+    	employeeInMemory.AddScore(input);
     }
     catch(Exception e)
     {
@@ -31,50 +74,10 @@ while (true)
     }
 }
 
-var statistics = employee.GetStatistics();
+var checkStatistics = employeeInMemory.GetStatistics();
 
-Console.WriteLine($"\nStatistics of the employee {employee.Name} {employee.Surname}:" );
-Console.WriteLine($"Average score: {statistics.Average:N2}");
-Console.WriteLine($"Min score: {statistics.Min}");
-Console.WriteLine($"Max score: {statistics.Max}");
-Console.WriteLine($"Average Letter: {statistics.AverageLetter}");
-
-Console.WriteLine();
-Console.WriteLine("Welcome to a boss evaluation program");
-Console.WriteLine("====================================");
-Console.WriteLine();
-Console.WriteLine("To leave the program enter the 'q' key");
-Console.WriteLine();
-
-Supervisor supervisor = new Supervisor("John", "Black");
-
-while (true)
-{
-    Console.Write("Enter the next boss evaluation: ");
-    var input = Console.ReadLine();
-
-    if (input == "q" || input == "Q")
-    {
-	    if (!supervisor.HasScore())
-	    {
-		    Console.WriteLine("\nThe boss has NOT been scored!");
-	    }
-        break;
-    }
-    try
-    {
-    	supervisor.AddScore(input);
-    }
-    catch(Exception e)
-    {
-        Console.WriteLine($"Exception catched: {e.Message}");
-    }
-}
-
-var bossStatistics = supervisor.GetStatistics();
-
-Console.WriteLine($"\nStatistics of the boss {supervisor.Name} {supervisor.Surname}:" );
-Console.WriteLine($"Average score: {bossStatistics.Average:N2}");
-Console.WriteLine($"Min score: {bossStatistics.Min}");
-Console.WriteLine($"Max score: {bossStatistics.Max}");
-Console.WriteLine($"Average Letter: {bossStatistics.AverageLetter}");
+Console.WriteLine($"\nStatistics of the employee {employeeInMemory.Name} {employeeInMemory.Surname} used for test purposes - not written to the file:" );
+Console.WriteLine($"Average score: {checkStatistics.Average:N2}");
+Console.WriteLine($"Min score: {checkStatistics.Min}");
+Console.WriteLine($"Max score: {checkStatistics.Max}");
+Console.WriteLine($"Average Letter: {checkStatistics.AverageLetter}");

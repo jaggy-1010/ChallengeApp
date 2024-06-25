@@ -7,7 +7,7 @@ public class EmployeeTests
     public void CheckEmployeeName()
     {
         // arrange
-        Employee employee = new Employee("Mieszko", "Pierwszy");
+        EmployeeInMemory employee = new EmployeeInMemory("Mieszko", "Pierwszy");
 
         //act
         var result = employee.Name;
@@ -20,7 +20,7 @@ public class EmployeeTests
     public void CheckEmployeeSurname()
     {
         // arrange
-        Employee employee = new Employee("Bolesław", "Chrobry");
+        EmployeeInMemory employee = new EmployeeInMemory("Bolesław", "Chrobry");
 
         //act
         var result = employee.Surname;

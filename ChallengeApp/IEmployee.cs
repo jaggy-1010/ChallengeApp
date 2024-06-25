@@ -4,6 +4,7 @@ public interface IEmployee
 {
     string Name { get; }
     string Surname{ get; }
+    
     Statistics GetStatistics();
     void AddScore(float score);
     void AddScore(string score);

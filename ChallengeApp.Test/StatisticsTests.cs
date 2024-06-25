@@ -8,7 +8,7 @@ public class StatisticsTests
     public void CheckScoresStatisticsWhereEmployeeIsScored()
     {
         // arrange
-        Employee employee = new Employee("Stefan","Batory");
+        EmployeeInMemory employee = new EmployeeInMemory("Stefan","Batory");
         employee.AddScore("100");
         employee.AddScore("25");
         employee.AddScore("40");
@@ -36,7 +36,7 @@ public class StatisticsTests
     public void CheckScoresStatisticsWhereEmployeeIsNotScored()
     {
         // arrange
-        Employee employee = new Employee("Kazimierz","Jagiellończyk");
+        EmployeeInMemory employee = new EmployeeInMemory("Kazimierz","Jagiellończyk");
 
         // act
         var statistics = employee.GetStatistics();

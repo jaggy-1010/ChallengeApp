@@ -1,19 +1,14 @@
 namespace ChallengeApp;
 
-public class Employee : IEmployee 
+public class EmployeeInMemory : EmployeeBase // : IEmployee
 {
     private List<float> scores = new List<float>();    
 
-    public Employee (string name, string surname) 
+    public EmployeeInMemory (string name, string surname) : base(name, surname)
     {
-        this.Name = name;
-        this.Surname = surname;
     }
 
-    public string Name { get; private set; }
-    public string Surname { get; private set; }
-
-    public void AddScore(float score)
+    public override void AddScore(float score)
     {
         if (score >= 0 && score <= 100)
         {
@@ -25,7 +20,7 @@ public class Employee : IEmployee
         }
     }
     
-    public void AddScore(string score)
+    public override void AddScore(string score)
     {
         if (score != null)
         {
@@ -49,34 +44,32 @@ public class Employee : IEmployee
         }
     }
 
-    public void AddScore(int score)
+    public override void AddScore(int score)
     {
         float result = score;
         this.AddScore(result);
     }
     
-    public void AddScore(long score)
+    public override void AddScore(long score)
     {
         float result = score;
         this.AddScore(result);
     }
 
-    public void AddScore(double score)
+    public override void AddScore(double score)
     {
         float result = (float)score;
         this.AddScore(result);
     }
 
-    public void AddScore(decimal score)
+    public override void AddScore(decimal score)
     {
         float result = (float)score;
         this.AddScore(result);
     }
 
-    public void AddScore(char score)
+    public override void AddScore(char score)
     {
-        float result = score;
-
         switch(score)
         {
             case 'A':
@@ -104,10 +97,9 @@ public class Employee : IEmployee
         }
     }
 
-    public Statistics GetStatistics()
+    public override Statistics GetStatistics()
     {
         var statistics = new Statistics();
-
         statistics.Average = 0;
         statistics.Min = float.MaxValue;
         statistics.Max = float.MinValue;
@@ -148,10 +140,11 @@ public class Employee : IEmployee
             statistics.Max = 0;
             statistics.AverageLetter = Param.AVERAGE_LEVEL_E;
         }
+
         return statistics;
     }
 
-    public bool HasScore()
+    public override bool HasScore()
     {
         if (scores.Count != 0)
 	    {
