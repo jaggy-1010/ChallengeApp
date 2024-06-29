@@ -7,6 +7,12 @@ Console.WriteLine("To leave the program enter the 'q' key");
 Console.WriteLine();
 
 var employeeInFile = new EmployeeInFile("Jan", "Kowalski");
+employeeInFile.ScoreAdded += EmployeeInFileScoreAdded;
+
+void EmployeeInFileScoreAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("new scoring added to file.");
+}
 employeeInFile.AddScore(88.7f);
 employeeInFile.AddScore(88);
 employeeInFile.AddScore(77L);
@@ -47,6 +53,12 @@ Console.WriteLine($"Average Letter: {statistics.AverageLetter}");
 Console.WriteLine();
 
 var employeeInMemory = new EmployeeInMemory("Mateusz", "Malinowski");
+employeeInMemory.ScoreAdded += EmployeeInMemoryScoreAdded;
+
+void EmployeeInMemoryScoreAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("New scoring added to memory.");
+}
 Console.WriteLine($"Enter the points scored by the employee {employeeInMemory.Name} {employeeInMemory.Surname}.");
 Console.WriteLine("Below grades will not be remembered and will disappear when the programm stops!");
 Console.WriteLine("If you don't want continue press the 'q' key.");

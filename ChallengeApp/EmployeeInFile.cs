@@ -2,6 +2,7 @@ namespace ChallengeApp;
 
 public class EmployeeInFile : EmployeeBase // : IEmployee
 {
+    public override event ScoreAddedDelegate ScoreAdded;
     public EmployeeInFile(string name, string surname) : base(name, surname)
     {
     }
@@ -15,6 +16,10 @@ public class EmployeeInFile : EmployeeBase // : IEmployee
             if (score >= 0 && score <= 100)
             {
                 writer.WriteLine(score);
+                if(ScoreAdded != null)
+                {
+                    ScoreAdded(this, new EventArgs());
+                }
             }
             else
             {

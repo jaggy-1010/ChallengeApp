@@ -20,4 +20,7 @@ public string Surname { get; private set; }
     public abstract void AddScore(char score);
     public abstract Statistics GetStatistics();
     public abstract bool HasScore();
+
+    public delegate void ScoreAddedDelegate(object sender, EventArgs args);
+    public abstract event ScoreAddedDelegate ScoreAdded;
 }

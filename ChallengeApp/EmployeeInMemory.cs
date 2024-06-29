@@ -2,6 +2,7 @@ namespace ChallengeApp;
 
 public class EmployeeInMemory : EmployeeBase // : IEmployee
 {
+    public override event ScoreAddedDelegate ScoreAdded;
     private List<float> scores = new List<float>();    
 
     public EmployeeInMemory (string name, string surname) : base(name, surname)
@@ -13,6 +14,10 @@ public class EmployeeInMemory : EmployeeBase // : IEmployee
         if (score >= 0 && score <= 100)
         {
             this.scores.Add(score);
+            if(ScoreAdded != null)
+            {
+                ScoreAdded(this, new EventArgs());
+            }
         }
         else
         {
