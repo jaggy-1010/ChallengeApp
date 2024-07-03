@@ -37,7 +37,7 @@ while (true)
     }
 }
 
-Console.WriteLine($"Grades scored so far by employee {employeeInFile.Name} {employeeInFile.Surname}:");
+Console.WriteLine($"\nGrades scored so far by employee {employeeInFile.Name} {employeeInFile.Surname}:");
 
 static void ShowThePointsScored()
 {

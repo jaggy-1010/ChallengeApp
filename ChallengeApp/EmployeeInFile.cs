@@ -20,6 +20,7 @@ public class EmployeeInFile : EmployeeBase // : IEmployee
                 {
                     ScoreAdded(this, new EventArgs());
                 }
+                counter++;
             }
             else
             {
