@@ -11,18 +11,33 @@ employeeInFile.ScoreAdded += EmployeeInFileScoreAdded;
 
 void EmployeeInFileScoreAdded(object sender, EventArgs args)
 {
-    Console.WriteLine("new scoring added to file.");
+    Console.WriteLine("New scoring added to file.");
 }
-employeeInFile.AddScore(88.7f);
-employeeInFile.AddScore(88);
-employeeInFile.AddScore(77L);
-employeeInFile.AddScore(88.3);
-employeeInFile.AddScore(58.7M);
-employeeInFile.AddScore("24");
-employeeInFile.AddScore("82,78");
-employeeInFile.AddScore('A');
 
-Console.WriteLine($"Grades scored by employee {employeeInFile.Name} {employeeInFile.Surname}:");
+while (true)
+{
+    Console.Write("Enter the next employee evaluation: ");
+    var input = Console.ReadLine();
+
+    if (input == "q" || input == "Q")
+    {
+	    if (!employeeInFile.HasScore())
+	    {
+		    Console.WriteLine("\nThe employee has NOT been scored!");
+	    }
+        break;
+    }
+    try
+    {
+    	employeeInFile.AddScore(input);
+    }
+    catch(Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
+}
+
+Console.WriteLine($"Grades scored so far by employee {employeeInFile.Name} {employeeInFile.Surname}:");
 
 static void ShowThePointsScored()
 {
@@ -46,6 +61,8 @@ ShowThePointsScored();
 
 var statistics = employeeInFile.GetStatistics();
 Console.WriteLine($"\nStatistics of employee {employeeInFile.Name} {employeeInFile.Surname} written to file:");
+Console.WriteLine($"Scores received: {statistics.Average:N2}");
+Console.WriteLine($"Number of scores: {statistics.Count}");
 Console.WriteLine($"Average score: {statistics.Average:N2}");
 Console.WriteLine($"Min score: {statistics.Min}");
 Console.WriteLine($"Max score: {statistics.Max}");
@@ -89,6 +106,8 @@ while (true)
 var checkStatistics = employeeInMemory.GetStatistics();
 
 Console.WriteLine($"\nStatistics of the employee {employeeInMemory.Name} {employeeInMemory.Surname} used for test purposes - not written to the file:" );
+Console.WriteLine($"Scores received: {checkStatistics.Average:N2}");
+Console.WriteLine($"Number of scores: {checkStatistics.Count}");
 Console.WriteLine($"Average score: {checkStatistics.Average:N2}");
 Console.WriteLine($"Min score: {checkStatistics.Min}");
 Console.WriteLine($"Max score: {checkStatistics.Max}");

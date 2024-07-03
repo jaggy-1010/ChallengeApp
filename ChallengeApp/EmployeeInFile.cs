@@ -108,9 +108,6 @@ public class EmployeeInFile : EmployeeBase // : IEmployee
     public override Statistics GetStatistics()
     {
         var statistics = new Statistics();
-        statistics.Average = 0;
-        statistics.Min = float.MaxValue;
-        statistics.Max = float.MinValue;
 
         if (File.Exists(Param.FILE_NAME))
         {
@@ -122,42 +119,10 @@ public class EmployeeInFile : EmployeeBase // : IEmployee
                 {
                     counter++;
                     var score = float.Parse(line);
-                    statistics.Min = Math.Min(statistics.Min, score);
-                    statistics.Max = Math.Max(statistics.Max, score);
-                    statistics.Average += score;
+                    statistics.AddScore(score);
                     line = reader.ReadLine();
                 }
             }
-        }
-
-        if (counter != 0)
-        {
-            statistics.Average /= counter;
-
-            switch (statistics.Average)
-            {
-                case var average when average >= Param.GRADE_B:
-                    statistics.AverageLetter = Param.AVERAGE_LEVEL_A;
-                    break;
-                case var average when average >= Param.GRADE_C:
-                    statistics.AverageLetter = Param.AVERAGE_LEVEL_B;
-                    break;
-                case var average when average >= Param.GRADE_D:
-                    statistics.AverageLetter = Param.AVERAGE_LEVEL_C;
-                    break;
-                case var average when average >= Param.GRADE_E:
-                    statistics.AverageLetter = Param.AVERAGE_LEVEL_D;
-                    break;
-                default:
-                    statistics.AverageLetter = Param.AVERAGE_LEVEL_E;
-                    break;
-            }
-        }
-        else
-        {
-            statistics.Min = 0;
-            statistics.Max = 0;
-            statistics.AverageLetter = 'E';
         }
 
         return statistics;
