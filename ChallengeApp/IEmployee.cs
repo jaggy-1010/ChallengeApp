@@ -1,3 +1,5 @@
+using static ChallengeApp.EmployeeBase;
+
 namespace ChallengeApp;
 
 public interface IEmployee
@@ -13,4 +15,5 @@ public interface IEmployee
     void AddScore(decimal score);
     void AddScore(char score);
     bool HasScore();
+    event ScoreAddedDelegate ScoreAdded;
 }
