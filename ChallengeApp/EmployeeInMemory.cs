@@ -40,7 +40,7 @@ public class EmployeeInMemory : EmployeeBase // : IEmployee
             }
             else
             {
-                throw new Exception("String is not float");
+                throw new Exception("Invalid string");
             }
         }
         else
